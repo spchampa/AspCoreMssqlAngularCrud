@@ -1,5 +1,5 @@
 export class PaymentDetail {
-    PMId: number;
+    PMId :number;
     CardOwnerName: string;
     CardNumber: string;
     ExpirationDate: string;
