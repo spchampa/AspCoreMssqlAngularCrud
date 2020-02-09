@@ -11,11 +11,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PaymentDetailsController : ControllerBase
+    public class PaymentDetailController : ControllerBase
     {
         private readonly PaymentDetailContext _context;
 
-        public PaymentDetailsController(PaymentDetailContext context)
+        public PaymentDetailController(PaymentDetailContext context)
         {
             _context = context;
         }
