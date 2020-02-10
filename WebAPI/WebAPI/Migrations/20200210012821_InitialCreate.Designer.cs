@@ -9,7 +9,7 @@ using WebAPI.Models;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(PaymentDetailContext))]
-    [Migration("20200209012959_InitialCreate")]
+    [Migration("20200210012821_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

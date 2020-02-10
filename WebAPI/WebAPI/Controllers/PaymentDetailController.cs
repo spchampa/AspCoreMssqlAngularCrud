@@ -20,36 +20,22 @@ namespace WebAPI.Controllers
             _context = context;
         }
 
-        // GET: api/PaymentDetails
+        // GET: api/PaymentDetail
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PaymentDetail>>> GetPaymentDetails()
         {
             return await _context.PaymentDetails.ToListAsync();
         }
+        
 
-        //// GET: api/PaymentDetails/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<PaymentDetail>> GetPaymentDetail(int id)
-        //{
-        //    var paymentDetail = await _context.PaymentDetails.FindAsync(id);
-
-        //    if (paymentDetail == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return paymentDetail;
-        //}
-
-        // PUT: api/PaymentDetails/5
+        // PUT: api/PaymentDetail/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPaymentDetail(int id, PaymentDetail paymentDetail)
         {
-            if (id != paymentDetail.PMId)
+            if(id!=paymentDetail.PMId)
             {
                 return BadRequest();
             }
-
             _context.Entry(paymentDetail).State = EntityState.Modified;
 
             try
@@ -71,7 +57,21 @@ namespace WebAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/PaymentDetails
+        // GET: api/PaymentDetail/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PaymentDetail>> GetPaymentDetail(int id)
+        {
+            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
+
+            if (paymentDetail == null)
+            {
+                return NotFound();
+            }
+
+            return paymentDetail;
+        }
+
+        // POST: api/PaymentDetail
         [HttpPost]
         public async Task<ActionResult<PaymentDetail>> PostPaymentDetail(PaymentDetail paymentDetail)
         {
@@ -81,7 +81,7 @@ namespace WebAPI.Controllers
             return CreatedAtAction("GetPaymentDetail", new { id = paymentDetail.PMId }, paymentDetail);
         }
 
-        // DELETE: api/PaymentDetails/5
+        // DELETE: api/PaymentDetail/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<PaymentDetail>> DeletePaymentDetail(int id)
         {
